@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include eegtopo/examples *.py
+recursive-include eegtopo *.py
