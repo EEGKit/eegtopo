@@ -15,10 +15,10 @@ Example
 >>> # Run analysis
 >>> analysis = TopographicAnalysis(df, value_col='power')
 >>> results = analysis.run_cluster_test('pre', 'post', n_permutations=1024)
->>> analysis.plot_topomap(results.t_obs, title="t-statistic map")
+>>> analysis.plot_cluster_results(results)
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.0-dev"
 
 # Coordinate transformations
 from .coordinates import (
@@ -42,7 +42,10 @@ from .interpolation import (
 )
 
 # Plotting
-from .plotting import plot_topomap
+from .plotting import (
+    plot_topomap,
+    plot_cluster_topomap,
+)
 
 # Statistics
 from .statistics import cluster_permutation_test
@@ -54,21 +57,13 @@ from .dataframe_interface import (
     run_cluster_analysis,
 )
 
-# Legacy imports for backward compatibility
-from .montage import get_channel_positions as montage_xy
-from .montage import create_mne_info as build_mne_info
-
 __all__ = [
-    # Version
-    "__version__",
     # Coordinates
     "cartesian_to_spherical",
     "azimuthal_equidistant_projection",
     # Montage
     "get_channel_positions",
-    "montage_xy",
     "create_mne_info",
-    "build_mne_info",
     # Head
     "HeadOutline",
     # Interpolation
@@ -76,6 +71,7 @@ __all__ = [
     "interpolate_topography",
     # Plotting
     "plot_topomap",
+    "plot_cluster_topomap",
     # Statistics
     "cluster_permutation_test",
     # High-level interface

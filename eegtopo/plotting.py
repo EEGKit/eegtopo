@@ -25,6 +25,7 @@ def plot_topomap(
     sig_mask: Optional[np.ndarray] = None,
     title: Optional[str] = None,
     colorbar: bool = True,
+    colorbar_label: Optional[str] = None,
     head: bool = True,
     grid_res: int = 256,
     nan_fill: float = 0.0,
@@ -62,6 +63,8 @@ def plot_topomap(
         Axes title.
     colorbar : bool
         Add a colour bar.
+    colorbar_label : str | None
+        Label for the colorbar (e.g., 't-statistic', 'Power (µV²)', 'Counts').
     head : bool
         Draw the head outline.
     grid_res : int
@@ -182,7 +185,9 @@ def plot_topomap(
     if title:
         ax.set_title(title, fontsize=12, pad=10)
     if colorbar:
-        fig.colorbar(im, ax=ax, fraction=0.046, pad=0.06)
+        cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.06)
+        if colorbar_label:
+            cbar.set_label(colorbar_label)
 
     ax.set_xlim(xmin, xmax)
     ax.set_ylim(ymin, ymax)

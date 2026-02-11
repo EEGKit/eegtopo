@@ -10,6 +10,14 @@ A clean, pip-installable Python package for EEG topographic mapping and cluster-
 - **Flexible threshold handling** - automatic, manual, or TFCE cluster-forming thresholds
 - **Significance marking** - clearly visualize significant channels
 
+## Example Results
+
+The package includes example datasets demonstrating both significant effects and null results:
+
+![Comparison of significant effect vs null result](examples/comparison_256_both_examples.png)
+
+*Top row: Dataset with significant frontal alpha effect (GSN-HydroCel-256). Bottom row: Null data showing no significant clusters.*
+
 ## Installation
 
 ```bash
