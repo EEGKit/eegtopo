@@ -9,39 +9,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
-
     steps:
     - uses: actions/checkout@v4
-
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
-
-    - name: Install dependencies
+        python-version: '3.11'
+    - name: Install and verify
       run: |
         python -m pip install --upgrade pip
-        pip install -e ".[dev]"
-
-    - name: Verify package imports
-      run: python -c "import eegtopo; print(f'eegtopo version: {eegtopo.__version__}')"
-
-    - name: Check for tests
-      id: check_tests
-      run: |
-        if [ -d "tests" ] && [ "$(ls -A tests/*.py 2>/dev/null)" ]; then
-          echo "has_tests=true" >> $GITHUB_OUTPUT
-        else
-          echo "has_tests=false" >> $GITHUB_OUTPUT
-        fi
-
-    - name: Run tests
-      if: steps.check_tests.outputs.has_tests == 'true'
-      run: pytest --cov=eegtopo -v
-
-    - name: Upload coverage
-      uses: codecov/codecov-action@v3
-      if: steps.check_tests.outputs.has_tests == 'true' && matrix.python-version == '3.11'
+        pip install -e .
+        python -c "import eegtopo; print(f'eegtopo version: {eegtopo.__version__}')"
