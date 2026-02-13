@@ -36,8 +36,6 @@ def get_channel_positions(
 
     Raises
     ------
-    ImportError
-        If mne is not installed.
     ValueError
         If no valid channels are found.
     """

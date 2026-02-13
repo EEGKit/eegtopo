@@ -36,7 +36,7 @@ def plot_topomap(
     extrapolate: bool = True,
     show_labels: bool = False,
     label_offset: Tuple[float, float] = (0.02, 0.02),
-    label_fontsize: int = 8,
+    label_fontsize: int = 4,
 ) -> Tuple[matplotlib.figure.Figure, matplotlib.axes.Axes, Any]:
     """
     Plot an interpolated topographic scalp map.
@@ -91,7 +91,7 @@ def plot_topomap(
         Offset for electrode labels from the marker position, in data
         coordinates (default (0.02, 0.02)).
     label_fontsize : int
-        Font size for electrode labels (default 8).
+        Font size for electrode labels (default 4).
 
     Returns
     -------
