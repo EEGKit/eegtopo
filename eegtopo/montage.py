@@ -41,12 +41,7 @@ def get_channel_positions(
     ValueError
         If no valid channels are found.
     """
-    try:
-        import mne
-    except ImportError:
-        raise ImportError(
-            "mne is required for montage handling. Install with: pip install mne"
-        )
+    import mne
 
     from .coordinates import azimuthal_equidistant_projection
 
@@ -93,10 +88,7 @@ def create_mne_info(
     ordered_channels : list[str]
         List of channel names in order.
     """
-    try:
-        import mne
-    except ImportError:
-        raise ImportError("mne is required. Install with: pip install mne")
+    import mne
 
     montage_std = mne.channels.make_standard_montage(montage_name)
     valid = set(montage_std.ch_names)

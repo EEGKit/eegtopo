@@ -18,7 +18,7 @@ Example
 >>> analysis.plot_cluster_results(results)
 """
 
-__version__ = "0.1.0-dev"
+__version__ = "0.1.1"
 
 # Coordinate transformations
 from .coordinates import (

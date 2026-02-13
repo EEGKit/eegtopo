@@ -53,12 +53,9 @@ def cluster_permutation_test(
     cluster_pv : ndarray
         p-value per cluster.
     """
-    try:
-        from mne.stats import permutation_cluster_1samp_test
-        from mne.channels import find_ch_adjacency
-        from scipy.stats import t as t_dist
-    except ImportError:
-        raise ImportError("mne and scipy are required for cluster testing")
+    from mne.stats import permutation_cluster_1samp_test
+    from mne.channels import find_ch_adjacency
+    from scipy.stats import t as t_dist
 
     adjacency, _ = find_ch_adjacency(info, ch_type="eeg")
 
