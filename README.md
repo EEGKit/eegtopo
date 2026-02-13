@@ -1,18 +1,15 @@
 # EEG Topographic Analysis Package (eegtopo)
 
-A clean, pip-installable Python package for EEG topographic mapping and cluster-based permutation testing.
+A slim and highly specific pip-installable Python package for EEG topographic mapping and cluster-based permutation testing.
 
-## Features
+What can you do with this package?
 
-- **Publication-quality topographic maps** with smooth interpolation covering the entire head
-- **Cluster-based permutation testing** with automatic spatial adjacency
+- Create **publication-quality topographic maps** 
+- Perform **cluster-based permutation testing** with automatic spatial adjacency
 - **Simple DataFrame interface** - just bring your data, no complex setup required
-- **Flexible threshold handling** - automatic, manual, or TFCE cluster-forming thresholds
-- **Significance marking** - clearly visualize significant channels
 
 ## Example Results
 
-The package includes example datasets demonstrating both significant effects and null results:
 
 ![Comparison of significant effect vs null result](examples/comparison_256_both_examples.png)
 
@@ -58,40 +55,8 @@ results = run_cluster_analysis(
 print(f"Found {results['results'].n_sig_clusters} significant clusters")
 print(results['results'].summary())
 
-# Method 2: Object-oriented (more control)
-analysis = TopographicAnalysis(df, value_col='power')
-
-# Run cluster test with custom threshold
-cluster_results = analysis.run_cluster_test(
-    'pre', 'post',
-    threshold=None,  # Auto-compute from t-distribution
-    n_permutations=1024
-)
-
-# Plot the results
-fig, ax, im = analysis.plot_cluster_results(cluster_results)
-
-# Plot mean topomaps
-fig, ax, im = analysis.plot_mean_topomap(condition='pre')
 ```
 
-## Advanced Usage
-
-### Custom Thresholds
-
-```python
-# Use automatic threshold (default - critical t for p<0.05)
-results = analysis.run_cluster_test('pre', 'post', threshold=None)
-
-# Use specific t-value
-results = analysis.run_cluster_test('pre', 'post', threshold=2.0)
-
-# Use TFCE (Threshold-Free Cluster Enhancement)
-results = analysis.run_cluster_test('pre', 'post', threshold='tfce')
-
-# Use MNE threshold dict
-results = analysis.run_cluster_test('pre', 'post', threshold={'start': 0, 'step': 0.2})
-```
 
 ### Working with Different Montages
 
