@@ -18,13 +18,12 @@ What can you do with this package?
 ## Installation
 
 ```bash
-# Clone or download the package
-cd eegtopo
 
-# Install in development mode
-pip install -e .
+pip install eegtopo
 
-# Or install normally
+or build from source:
+
+git clone https://github.com/idossha/eegtopo.git
 pip install .
 ```
 
