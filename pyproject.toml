@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Ido Haber", email = "ihaber@wisc.edu"}
 ]
 keywords = ["eeg", "topography", "cluster", "permutation", "statistics", "neuroscience"]
 classifiers = [
@@ -48,10 +48,9 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/eegtopo"
-Documentation = "https://eegtopo.readthedocs.io"
-Repository = "https://github.com/yourusername/eegtopo"
-Issues = "https://github.com/yourusername/eegtopo/issues"
+Homepage = "https://github.com/idossha/eegtopo"
+Repository = "https://github.com/idossha/eegtopo"
+Issues = "https://github.com/idossha/eegtopo/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
